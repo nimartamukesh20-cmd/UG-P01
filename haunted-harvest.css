@@ -81,6 +81,7 @@ nav a:focus,
     min-height: 620px;
     padding: 25px 15px;
     overflow: hidden;
+    animation: fadeIn 0.8s ease;
 }
 
 .scenes:not(:has(.scene:target)) .scene:first-child {
@@ -119,7 +120,7 @@ nav a:focus,
     right: 12%;
     width: 100px;
     height: 100px;
-
+    z-index: 2;
     background: var(--candle-glow);
     border-radius: 50%;
 
@@ -160,6 +161,7 @@ nav a:focus,
     background: #6c6878;
     border-radius: 50px;
     opacity: 0.65;
+    z-index: 3;
 }
 
 .cloud::before,
@@ -231,22 +233,17 @@ nav a:focus,
 .gravestone {
     position: absolute;
     bottom: 75px;
-
     width: 75px;
     height: 100px;
-
     padding-top: 35px;
-
     color: #aaa;
     background: #3c3a42;
-
     border-radius: 35px 35px 5px 5px;
     border: 3px solid #55515d;
-
     font-weight: bold;
     z-index: 3;
-
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .grave-one,
@@ -296,25 +293,31 @@ nav a:focus,
     transform: translateY(0);
 }
 
+.gravestone:hover{
+    box-shadow: 0 0 18px var(--candy-purple);
+    border-color: var(--ghost-white);
+}
 
+/* Couple walking */
 .couple {
     position: absolute;
     bottom: 65px;
-    left: -100px;
-
+    left: -120px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
     font-size: 48px;
-
     z-index: 5;
-
-    animation: walking 14s linear infinite;
+    animation:walking 14s linear infinite;
 }
 
-.couple-two {
-    animation-duration: 17s;
+.couple span{
+    display: block;
+    animation: bob 0.8s ease-in-out infinite alternate;
 }
 
-.couple-three {
-    animation-duration: 12s;
+.couple span:last-child{
+    animation-delay: .3s;
 }
 
 
@@ -616,7 +619,33 @@ footer {
     }
 }
 
+@keyframes crossGlow {
+    from {
+        text-shadow: 0 0 6px var(--candle-glow);
+    }
+    to{
+        text-shadow: 0 0 20px white, 0 0 30px var(--candle-glow);
+    }
+    
+}
 
+@keyframes bob {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-4px);
+    }
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
 @media (max-width: 700px) {
 
     .scene {
@@ -998,13 +1027,10 @@ footer {
 
 .chapel-roof {
     position: absolute;
-
     left: -18px;
     top: -45px;
-
     width: 0;
     height: 0;
-
     border-left: 65px solid transparent;
     border-right: 65px solid transparent;
     border-bottom: 48px solid #111015;
@@ -1026,19 +1052,13 @@ footer {
 
 .chapel-window {
     position: absolute;
-
     top: 15px;
     left: 37px;
-
     width: 26px;
     height: 28px;
-
     color: var(--candle-glow);
-
-    text-shadow:
-        0 0 8px var(--candle-glow);
-
     font-size: 22px;
+    animation: crossGlow 2s ease-in-out infinite alternate;
 }
 
 
@@ -1096,7 +1116,7 @@ footer {
     width: 70px;
     z-index: 5;
     animation: catWalk 14s linear infinite;
-    animation-delay: 1.5s;
+    animation-delay: 2.5s;
 }
 
 .scene1-ghost{
@@ -1114,12 +1134,19 @@ footer {
     bottom: 70px;
     width: 90px;
     z-index: 5;
+    transition: .5s;
 }
 
+.zombie:hover {
+    transform: translateY(-10px) rotate(-5deg) scale(1.05);
+    filter: drop-shadow(0 0 12px lime);
+}
 .tree-img{
     position: absolute;
     bottom: 65px;
     z-index: 4;
+    transform-origin: bottom center;
+    animation: treeSway 5s ease-in-out infinite alternate;
 }
 .skeleton-tree{
     left: 5%;

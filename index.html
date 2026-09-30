@@ -9,6 +9,16 @@
 </head>
 
 <body>
+    <div class="scenes">
+        <header class="main-header">
+            <h1> Midnight Graveyard Stroll </h1>
+            <p>A Halloween stroll through a haunted cemetery.</p>
+            <nav>
+                <a href="#scene1">Welcome</a>
+                <a href="#scene2">Graveyard</a>
+                <a href="#scene3">Haunted Path</a>
+            </nav>
+        </header>
     <!-- SCENE 1: ENTERING GRAVEYARD-->
 <section id="scene1" class="scene entrance-scene">
 
@@ -31,17 +41,21 @@
         <div class="fence fence-left"></div>
         <div class="fence fence-right"></div>
 
-        <div class="gravestone grave-one">
+        <div class="gravestone grave-one" tabindex="0">
             RIP
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="gravestone grave-two">
+        <div class="gravestone grave-two" tabindex="0">
             RIP
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="couple">🚶‍♀️🚶</div>
+        <div class="couple">
+            <span>🚶‍♀️</span>
+            <span>🚶</span>
+        </div>
+
         <img src="images/black_cat.png" alt="Black Cat" class="black-cat">
         <img src="images/ghost.png" alt="Ghost" class="scene1-ghost">
 
@@ -65,40 +79,43 @@
 
     <div class="graveyard deep-yard">
 
-        <div class="gravestone deep-grave grave-a">
+        <div class="gravestone deep-grave grave-a" tabindex="0">
             RIP
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="gravestone deep-grave grave-b">
+        <div class="gravestone deep-grave grave-b" tabindex="0">
             1892
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="gravestone deep-grave grave-c">
+        <div class="gravestone deep-grave grave-c" tabindex="0">
             RIP
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="gravestone deep-grave grave-d">
+        <div class="gravestone deep-grave grave-d" tabindex="0">
             1913
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="gravestone deep-grave grave-e">
+        <div class="gravestone deep-grave grave-e" tabindex="0">
             RIP
             <span class="hidden-ghost">👻</span>
         </div>
 
-        <div class="ghost-orb orb-one"></div>
-        <div class="ghost-orb orb-two"></div>
-        <div class="ghost-orb orb-three"></div>
+        <div class="ghost-orb orb-one" aria-hidden="true"></div>
+        <div class="ghost-orb orb-two" aria-hidden="true"></div>
+        <div class="ghost-orb orb-three" aria-hidden="true"></div>
 
         <div class="cyclist">🚴</div>
 
-        <div class="couple couple-two">🚶‍♀️🚶</div>
+        <div class="couple">
+            <span>🚶‍♀️</span>
+            <span>🚶</span>
+        </div>
         <img src="images/black_cat.png" alt="Black Cat" class="black-cat cat-two">
-        <img src="images/zombie.png" alt="zombie" class="zombie">
+        <img src="images/zombie.png" alt="Zombie reaching out from the grave" class="zombie">
 
 
         <div class="fog fog-two"></div>
@@ -131,7 +148,7 @@
 
         <div class="haunted-path"></div>
 
-        <div class="chapel">
+        <div class="chapel" aria-label="Abandoned chapel">
             <div class="chapel-roof"></div>
             <div class="chapel-window">✝</div>
             <div class="chapel-door"></div>
@@ -140,7 +157,10 @@
         <div class="floating-ghost ghost-one">👻</div>
         <div class="floating-ghost ghost-two">👻</div>
 
-        <div class="couple couple-three">🚶‍♀️🚶</div>
+        <div class="couple">
+            <span>🚶‍♀️</span>
+            <span>🚶</span>
+        </div>
         <img src="images/black_cat.png" alt="Black Cat" class="black-cat cat-three">
 
         <div class="fog forest-fog-one"></div>
@@ -154,5 +174,6 @@
     </div>
 
 </section>
+</div>
 </body>
 </html>
