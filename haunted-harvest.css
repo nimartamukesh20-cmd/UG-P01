@@ -1,6 +1,4 @@
-/* =========================================
-   HALLOWEEN COLOR PALETTE
-   ========================================= */
+/* COLOR PALETTE */
 
 :root {
     --pumpkin: #ff7518;
@@ -11,10 +9,6 @@
     --candle-glow: #ffd60a;
 }
 
-
-/* =========================================
-   BASIC PAGE STYLING
-   ========================================= */
 
 * {
     box-sizing: border-box;
@@ -82,10 +76,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   CSS-ONLY SCENE SWITCHING
-   ========================================= */
-
 .scene {
     display: none;
     min-height: 620px;
@@ -107,9 +97,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   SCENE / SKY
-   ========================================= */
 
 .sky {
     position: relative;
@@ -166,10 +153,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   CLOUDS
-   ========================================= */
-
 .cloud {
     position: absolute;
     width: 150px;
@@ -214,10 +197,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   GRAVEYARD
-   ========================================= */
-
 .graveyard {
     position: relative;
     max-width: 1000px;
@@ -248,10 +227,6 @@ nav a:focus,
     z-index: 1;
 }
 
-
-/* =========================================
-   GRAVESTONES
-   ========================================= */
 
 .gravestone {
     position: absolute;
@@ -301,10 +276,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   HOVER GHOST
-   ========================================= */
-
 .hidden-ghost {
     position: absolute;
     top: -70px;
@@ -325,10 +296,6 @@ nav a:focus,
     transform: translateY(0);
 }
 
-
-/* =========================================
-   PEOPLE WALKING
-   ========================================= */
 
 .couple {
     position: absolute;
@@ -351,9 +318,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   BLACK CAT
-   ========================================= */
 
 .black-cat {
     position: absolute;
@@ -369,10 +333,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   CYCLIST
-   ========================================= */
-
 .cyclist {
     position: absolute;
     bottom: 170px;
@@ -386,10 +346,6 @@ nav a:focus,
     animation: cyclistMove 10s linear infinite;
 }
 
-
-/* =========================================
-   GHOST ORBS
-   ========================================= */
 
 .ghost-orb {
     position: absolute;
@@ -428,9 +384,7 @@ nav a:focus,
 }
 
 
-/* =========================================
-   FLOATING GHOSTS
-   ========================================= */
+
 
 .floating-ghost {
     position: absolute;
@@ -453,10 +407,6 @@ nav a:focus,
     animation-delay: 1.5s;
 }
 
-
-/* =========================================
-   TREES
-   ========================================= */
 
 .tree {
     position: absolute;
@@ -492,10 +442,6 @@ nav a:focus,
     background: #100c12;
 }
 
-
-/* =========================================
-   FOG
-   ========================================= */
 
 .fog {
     position: absolute;
@@ -535,10 +481,6 @@ nav a:focus,
 }
 
 
-/* =========================================
-   BUTTONS / FOOTER
-   ========================================= */
-
 .scene-buttons {
     display: flex;
     justify-content: center;
@@ -556,10 +498,6 @@ footer {
     color: #c9c5ce;
 }
 
-
-/* =========================================
-   ANIMATIONS
-   ========================================= */
 
 @keyframes walking {
 
@@ -679,10 +617,6 @@ footer {
 }
 
 
-/* =========================================
-   RESPONSIVE DESIGN
-   ========================================= */
-
 @media (max-width: 700px) {
 
     .scene {
@@ -724,11 +658,6 @@ footer {
 }
 
 
-/* =========================================
-   ACCESSIBILITY:
-   REDUCED MOTION
-   ========================================= */
-
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -740,12 +669,10 @@ footer {
     }
 
 }
-/* ==================================================
-   DIFFERENT SCENE DESIGNS
-   ================================================== */
 
 
-/* ---------- SCENE 1: CEMETERY ENTRANCE ---------- */
+
+/* SCENE 1: CEMETARY ENTRANCE */
 
 .entrance-sky {
     background: linear-gradient(#080614, #282044);
@@ -844,7 +771,7 @@ footer {
 }
 
 
-/* ---------- SCENE 2: DEEP GRAVEYARD ---------- */
+/* SCENE 2: DEEP IN THE GRAVEYARD */
 
 .deep-sky {
     background: linear-gradient(#08040f, #321c45);
@@ -899,8 +826,6 @@ footer {
 }
 
 
-/* crooked graves */
-
 .grave-a {
     rotate: -7deg;
 }
@@ -914,7 +839,7 @@ footer {
 }
 
 
-/* ---------- SCENE 3: HAUNTED FOREST ---------- */
+/* SCENE 3: HAUNTED FOREST */
 
 .forest-sky {
     background:
@@ -986,8 +911,6 @@ footer {
 }
 
 
-/* ---------- DEAD TREES ---------- */
-
 .dead-tree {
     position: absolute;
 
@@ -1055,8 +978,6 @@ footer {
 }
 
 
-/* ---------- ABANDONED CHAPEL ---------- */
-
 .chapel {
     position: absolute;
 
@@ -1121,8 +1042,6 @@ footer {
 }
 
 
-/* ---------- EXTRA FOREST FOG ---------- */
-
 .forest-fog-one {
     bottom: 35px;
     animation-duration: 10s;
@@ -1135,14 +1054,10 @@ footer {
 }
 
 
-/* Make final scene ghosts more noticeable */
-
 .forest-scene .floating-ghost {
     filter: drop-shadow(0 0 12px white);
 }
 
-
-/* ---------- MOBILE ---------- */
 
 @media (max-width: 700px) {
 
@@ -1172,4 +1087,46 @@ footer {
         width: 100px;
     }
 
+}
+
+.black-cat{
+    position: absolute;
+    left: -70px;
+    bottom: 55px;
+    width: 70px;
+    z-index: 5;
+    animation: catWalk 14s linear infinite;
+    animation-delay: 1.5s;
+}
+
+.scene1-ghost{
+    position: absolute;
+    right: 10%;
+    bottom: 120px;
+    width: 90px;
+    z-index: 5;
+    animation:ghostFloat 4s ease-in-out infinite;
+}
+
+.zombie{
+    position: absolute;
+    left: 55%;
+    bottom: 70px;
+    width: 90px;
+    z-index: 5;
+}
+
+.tree-img{
+    position: absolute;
+    bottom: 65px;
+    z-index: 4;
+}
+.skeleton-tree{
+    left: 5%;
+    width: 180px;
+}
+
+.spooky-tree{
+    right: 5%;
+    width: 180px;
 }
