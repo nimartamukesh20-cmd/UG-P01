@@ -1,38 +1,742 @@
-/* Halloween Color Palette & Variables */
+/* =========================================
+   HALLOWEEN COLOR PALETTE
+   ========================================= */
+
 :root {
-  --pumpkin: #ff7518;
-  --candy-purple: #5a189a;
-  --spider-black: #1a1423;
-  --slime-green: #8ac926;
-  --ghost-white: #f6f2f8;
-  --candle-glow: #ffd60a;
+    --pumpkin: #ff7518;
+    --candy-purple: #5a189a;
+    --spider-black: #1a1423;
+    --slime-green: #8ac926;
+    --ghost-white: #f6f2f8;
+    --candle-glow: #ffd60a;
 }
 
-/* Reduced Motion Preferences */
+
+/* =========================================
+   BASIC PAGE STYLING
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--spider-black);
+    color: var(--ghost-white);
+    font-family: "Segoe UI", Arial, sans-serif;
+    text-align: center;
+}
+
+.main-header {
+    padding: 25px 15px;
+    background: #100c18;
+    border-bottom: 3px solid var(--pumpkin);
+}
+
+.main-header h1 {
+    margin: 0;
+    color: var(--pumpkin);
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-shadow: 0 0 12px rgba(255, 117, 24, 0.6);
+}
+
+.main-header p {
+    margin: 10px 0 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+nav a,
+.next-button {
+    display: inline-block;
+    padding: 10px 18px;
+    color: var(--ghost-white);
+    background: var(--candy-purple);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+nav a:hover,
+nav a:focus,
+.next-button:hover,
+.next-button:focus {
+    background: var(--pumpkin);
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 117, 24, 0.7);
+    outline: 3px solid var(--candle-glow);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   CSS-ONLY SCENE SWITCHING
+   ========================================= */
+
+.scene {
+    display: none;
+    min-height: 620px;
+    padding: 25px 15px;
+    overflow: hidden;
+}
+
+.scenes:not(:has(.scene:target)) .scene:first-child {
+    display: block;
+}
+
+.scene:target {
+    display: block;
+}
+
+.scene h2 {
+    color: var(--candle-glow);
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   SCENE / SKY
+   ========================================= */
+
+.sky {
+    position: relative;
+    max-width: 1000px;
+    height: 180px;
+    margin: auto;
+    overflow: hidden;
+
+    background: linear-gradient(
+        #080614,
+        #20183c
+    );
+
+    border-radius: 15px 15px 0 0;
+}
+
+.moon {
+    position: absolute;
+    top: 25px;
+    right: 12%;
+    width: 100px;
+    height: 100px;
+
+    background: var(--candle-glow);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px var(--candle-glow),
+        0 0 45px rgba(255, 214, 10, 0.5);
+
+    animation: moonGlow 3s ease-in-out infinite alternate;
+}
+
+.moon::before,
+.moon::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(120, 100, 40, 0.25);
+}
+
+.moon::before {
+    width: 18px;
+    height: 18px;
+    top: 25px;
+    left: 20px;
+}
+
+.moon::after {
+    width: 25px;
+    height: 25px;
+    bottom: 20px;
+    right: 18px;
+}
+
+
+/* =========================================
+   CLOUDS
+   ========================================= */
+
+.cloud {
+    position: absolute;
+    width: 150px;
+    height: 35px;
+    background: #6c6878;
+    border-radius: 50px;
+    opacity: 0.65;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60px;
+    height: 60px;
+    left: 25px;
+    top: -25px;
+}
+
+.cloud::after {
+    width: 75px;
+    height: 75px;
+    right: 20px;
+    top: -35px;
+}
+
+.cloud-one,
+.cloud-three {
+    top: 70px;
+    animation: cloudMove 14s linear infinite;
+}
+
+.cloud-two,
+.cloud-four {
+    top: 120px;
+    animation: cloudMove 20s linear infinite reverse;
+}
+
+
+/* =========================================
+   GRAVEYARD
+   ========================================= */
+
+.graveyard {
+    position: relative;
+    max-width: 1000px;
+    height: 350px;
+    margin: auto;
+
+    background: linear-gradient(
+        #252038 0%,
+        #302943 45%,
+        #181522 100%
+    );
+
+    overflow: hidden;
+    border-radius: 0 0 15px 15px;
+}
+
+.graveyard::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 90px;
+
+    background: #15121c;
+    border-top: 5px solid #393044;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   GRAVESTONES
+   ========================================= */
+
+.gravestone {
+    position: absolute;
+    bottom: 75px;
+
+    width: 75px;
+    height: 100px;
+
+    padding-top: 35px;
+
+    color: #aaa;
+    background: #3c3a42;
+
+    border-radius: 35px 35px 5px 5px;
+    border: 3px solid #55515d;
+
+    font-weight: bold;
+    z-index: 3;
+
+    cursor: pointer;
+}
+
+.grave-one,
+.grave-three {
+    left: 15%;
+}
+
+.grave-two,
+.grave-four {
+    right: 20%;
+}
+
+.grave-five {
+    left: 45%;
+}
+
+.gravestone::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    bottom: -8px;
+    height: 10px;
+
+    background: #28262d;
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   HOVER GHOST
+   ========================================= */
+
+.hidden-ghost {
+    position: absolute;
+    top: -70px;
+    left: 15px;
+
+    font-size: 45px;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: opacity 0.4s ease,
+                transform 0.4s ease;
+}
+
+.gravestone:hover .hidden-ghost,
+.gravestone:focus-within .hidden-ghost {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   PEOPLE WALKING
+   ========================================= */
+
+.couple {
+    position: absolute;
+    bottom: 65px;
+    left: -100px;
+
+    font-size: 48px;
+
+    z-index: 5;
+
+    animation: walking 14s linear infinite;
+}
+
+.couple-two {
+    animation-duration: 17s;
+}
+
+.couple-three {
+    animation-duration: 12s;
+}
+
+
+/* =========================================
+   BLACK CAT
+   ========================================= */
+
+.black-cat {
+    position: absolute;
+    left: -70px;
+    bottom: 55px;
+
+    font-size: 38px;
+
+    z-index: 5;
+
+    animation: catWalk 14s linear infinite;
+    animation-delay: 1.5s;
+}
+
+
+/* =========================================
+   CYCLIST
+   ========================================= */
+
+.cyclist {
+    position: absolute;
+    bottom: 170px;
+    left: -100px;
+
+    font-size: 35px;
+    opacity: 0.65;
+
+    z-index: 2;
+
+    animation: cyclistMove 10s linear infinite;
+}
+
+
+/* =========================================
+   GHOST ORBS
+   ========================================= */
+
+.ghost-orb {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--ghost-white);
+
+    box-shadow:
+        0 0 10px var(--ghost-white),
+        0 0 25px var(--candy-purple);
+
+    z-index: 4;
+
+    animation: orbFloat 4s ease-in-out infinite;
+}
+
+.orb-one {
+    left: 30%;
+    top: 100px;
+}
+
+.orb-two {
+    left: 55%;
+    top: 160px;
+    animation-delay: 1s;
+}
+
+.orb-three {
+    right: 15%;
+    top: 80px;
+    animation-delay: 2s;
+}
+
+
+/* =========================================
+   FLOATING GHOSTS
+   ========================================= */
+
+.floating-ghost {
+    position: absolute;
+
+    font-size: 50px;
+
+    z-index: 4;
+
+    animation: ghostFloat 4s ease-in-out infinite;
+}
+
+.ghost-one {
+    left: 25%;
+    top: 100px;
+}
+
+.ghost-two {
+    right: 20%;
+    top: 140px;
+    animation-delay: 1.5s;
+}
+
+
+/* =========================================
+   TREES
+   ========================================= */
+
+.tree {
+    position: absolute;
+    bottom: 70px;
+
+    z-index: 2;
+
+    transform-origin: bottom center;
+
+    animation: treeSway 4s ease-in-out infinite alternate;
+}
+
+.tree-left {
+    left: 4%;
+}
+
+.tree-right {
+    right: 5%;
+}
+
+.tree-top {
+    color: #09070d;
+    font-size: 150px;
+    line-height: 100px;
+}
+
+.tree-trunk {
+    width: 20px;
+    height: 100px;
+
+    margin: auto;
+
+    background: #100c12;
+}
+
+
+/* =========================================
+   FOG
+   ========================================= */
+
+.fog {
+    position: absolute;
+
+    width: 300px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: rgba(246, 242, 248, 0.16);
+
+    filter: blur(12px);
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    animation: fogDrift 12s linear infinite;
+}
+
+.fog-one {
+    bottom: 40px;
+}
+
+.fog-two {
+    bottom: 100px;
+    animation-delay: 4s;
+}
+
+.fog-three {
+    bottom: 60px;
+    animation-delay: 2s;
+}
+
+.fog-four {
+    bottom: 90px;
+}
+
+
+/* =========================================
+   BUTTONS / FOOTER
+   ========================================= */
+
+.scene-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.next-button {
+    margin-top: 25px;
+}
+
+footer {
+    padding: 20px;
+    background: #100c18;
+    color: #c9c5ce;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes walking {
+
+    from {
+        left: -120px;
+    }
+
+    to {
+        left: 105%;
+    }
+}
+
+
+@keyframes catWalk {
+
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 105%;
+    }
+}
+
+
+@keyframes cyclistMove {
+
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 105%;
+    }
+}
+
+
+@keyframes cloudMove {
+
+    from {
+        left: -200px;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
+
+@keyframes fogDrift {
+
+    from {
+        left: -350px;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
+
+@keyframes ghostFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-35px) scale(1.3);
+        opacity: 1;
+    }
+}
+
+
+@keyframes treeSway {
+
+    from {
+        transform: rotate(-2deg);
+    }
+
+    to {
+        transform: rotate(3deg);
+    }
+}
+
+
+@keyframes moonGlow {
+
+    from {
+        box-shadow:
+            0 0 15px var(--candle-glow),
+            0 0 30px rgba(255, 214, 10, 0.4);
+    }
+
+    to {
+        box-shadow:
+            0 0 30px var(--candle-glow),
+            0 0 60px rgba(255, 214, 10, 0.7);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .scene {
+        padding: 15px 8px;
+    }
+
+    .sky {
+        height: 150px;
+    }
+
+    .graveyard {
+        height: 320px;
+    }
+
+    .moon {
+        width: 75px;
+        height: 75px;
+        right: 8%;
+    }
+
+    .couple {
+        font-size: 38px;
+    }
+
+    .black-cat {
+        font-size: 30px;
+    }
+
+    .gravestone {
+        width: 60px;
+        height: 85px;
+        font-size: 13px;
+    }
+
+    .tree-top {
+        font-size: 110px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY:
+   REDUCED MOTION
+   ========================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
 
-/* CSS-only scene switching; wrap scenes in .scenes */
-.scene { display: none; }
-.scenes:not(:has(.scene:target)) .scene:first-child { display: block; }
-.scene:target { display: block; }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
 
-/* Glowing jack-o'-lantern flicker */
-@keyframes flicker {
-  0%, 100% { opacity: 1; filter: drop-shadow(0 0 12px var(--pumpkin)); }
-  50%      { opacity: 0.75; }
-}
-
-.pumpkin-glow {
-  animation: flicker 2.5s ease-in-out infinite;
-}
-
-/* Fog drift */
-@keyframes drift {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(100%); }
 }
