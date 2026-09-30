@@ -740,3 +740,436 @@ footer {
     }
 
 }
+/* ==================================================
+   DIFFERENT SCENE DESIGNS
+   ================================================== */
+
+
+/* ---------- SCENE 1: CEMETERY ENTRANCE ---------- */
+
+.entrance-sky {
+    background: linear-gradient(#080614, #282044);
+}
+
+.entrance-yard {
+    background: linear-gradient(#29243a 0%, #17131e 100%);
+}
+
+.cemetery-gate {
+    position: absolute;
+    left: 50%;
+    bottom: 70px;
+    width: 330px;
+    height: 220px;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.gate-sign {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 250px;
+    padding: 10px;
+
+    background: #111;
+    color: var(--pumpkin);
+
+    border: 3px solid #555;
+    border-radius: 50% 50% 5px 5px;
+
+    font-family: Georgia, serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.gate-left,
+.gate-right {
+    position: absolute;
+    bottom: 0;
+
+    width: 145px;
+    height: 170px;
+
+    border: 7px solid #111;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 18px,
+            #111 19px,
+            #111 25px
+        );
+}
+
+.gate-left {
+    left: 10px;
+}
+
+.gate-right {
+    right: 10px;
+}
+
+.fence {
+    position: absolute;
+    bottom: 70px;
+
+    width: 35%;
+    height: 100px;
+
+    border-top: 7px solid #111;
+    border-bottom: 7px solid #111;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #111 0,
+            #111 6px,
+            transparent 6px,
+            transparent 35px
+        );
+
+    z-index: 2;
+}
+
+.fence-left {
+    left: 0;
+}
+
+.fence-right {
+    right: 0;
+}
+
+
+/* ---------- SCENE 2: DEEP GRAVEYARD ---------- */
+
+.deep-sky {
+    background: linear-gradient(#08040f, #321c45);
+}
+
+.deep-yard {
+    background:
+        linear-gradient(
+            to bottom,
+            #282137,
+            #17121d 70%,
+            #0e0c11
+        );
+}
+
+.moon-left {
+    left: 9%;
+    right: auto;
+}
+
+.deep-grave {
+    transform: scale(0.85);
+}
+
+.grave-a {
+    left: 7%;
+    bottom: 70px;
+}
+
+.grave-b {
+    left: 28%;
+    bottom: 120px;
+    transform: scale(0.65);
+}
+
+.grave-c {
+    left: 47%;
+    bottom: 65px;
+    transform: scale(1.1);
+}
+
+.grave-d {
+    right: 25%;
+    bottom: 125px;
+    transform: scale(0.6);
+}
+
+.grave-e {
+    right: 7%;
+    bottom: 70px;
+    transform: scale(0.9);
+}
+
+
+/* crooked graves */
+
+.grave-a {
+    rotate: -7deg;
+}
+
+.grave-c {
+    rotate: 5deg;
+}
+
+.grave-e {
+    rotate: -4deg;
+}
+
+
+/* ---------- SCENE 3: HAUNTED FOREST ---------- */
+
+.forest-sky {
+    background:
+        linear-gradient(
+            #030307,
+            #101323
+        );
+}
+
+.forest-yard {
+    background:
+        linear-gradient(
+            #10131a 0%,
+            #101610 45%,
+            #050706 100%
+        );
+}
+
+
+/* Smaller distant moon */
+
+.small-moon {
+    position: absolute;
+
+    top: 30px;
+    left: 50%;
+
+    width: 65px;
+    height: 65px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #ddd7a5;
+
+    box-shadow:
+        0 0 20px rgba(255,255,210,.7);
+}
+
+
+/* Forest path */
+
+.haunted-path {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 420px;
+    height: 260px;
+
+    transform: translateX(-50%);
+
+    clip-path: polygon(
+        43% 0,
+        57% 0,
+        100% 100%,
+        0 100%
+    );
+
+    background:
+        linear-gradient(
+            #302d32,
+            #18161a
+        );
+
+    z-index: 1;
+}
+
+
+/* ---------- DEAD TREES ---------- */
+
+.dead-tree {
+    position: absolute;
+
+    bottom: 60px;
+
+    width: 45px;
+    height: 280px;
+
+    background: #080909;
+
+    z-index: 4;
+
+    transform-origin: bottom;
+    animation: treeSway 4s ease-in-out infinite alternate;
+}
+
+.forest-tree-left {
+    left: 8%;
+    transform: rotate(-5deg);
+}
+
+.forest-tree-right {
+    right: 8%;
+    transform: rotate(5deg);
+}
+
+.branch {
+    position: absolute;
+
+    width: 150px;
+    height: 18px;
+
+    background: #080909;
+
+    transform-origin: left center;
+}
+
+.branch-one {
+    top: 60px;
+    left: 20px;
+
+    transform: rotate(-35deg);
+}
+
+.branch-two {
+    top: 120px;
+    left: 15px;
+
+    transform: rotate(35deg);
+}
+
+.forest-tree-right .branch {
+    left: auto;
+    right: 20px;
+
+    transform-origin: right center;
+}
+
+.forest-tree-right .branch-one {
+    transform: rotate(35deg);
+}
+
+.forest-tree-right .branch-two {
+    transform: rotate(-35deg);
+}
+
+
+/* ---------- ABANDONED CHAPEL ---------- */
+
+.chapel {
+    position: absolute;
+
+    left: 50%;
+    bottom: 150px;
+
+    width: 100px;
+    height: 105px;
+
+    transform: translateX(-50%);
+
+    background: #18171c;
+
+    border: 3px solid #29272e;
+
+    z-index: 2;
+}
+
+.chapel-roof {
+    position: absolute;
+
+    left: -18px;
+    top: -45px;
+
+    width: 0;
+    height: 0;
+
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-bottom: 48px solid #111015;
+}
+
+.chapel-door {
+    position: absolute;
+
+    bottom: 0;
+    left: 36px;
+
+    width: 28px;
+    height: 48px;
+
+    background: #080709;
+
+    border-radius: 15px 15px 0 0;
+}
+
+.chapel-window {
+    position: absolute;
+
+    top: 15px;
+    left: 37px;
+
+    width: 26px;
+    height: 28px;
+
+    color: var(--candle-glow);
+
+    text-shadow:
+        0 0 8px var(--candle-glow);
+
+    font-size: 22px;
+}
+
+
+/* ---------- EXTRA FOREST FOG ---------- */
+
+.forest-fog-one {
+    bottom: 35px;
+    animation-duration: 10s;
+}
+
+.forest-fog-two {
+    bottom: 130px;
+    animation-delay: 3s;
+    animation-duration: 15s;
+}
+
+
+/* Make final scene ghosts more noticeable */
+
+.forest-scene .floating-ghost {
+    filter: drop-shadow(0 0 12px white);
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+    .cemetery-gate {
+        width: 250px;
+    }
+
+    .gate-left,
+    .gate-right {
+        width: 110px;
+    }
+
+    .gate-sign {
+        width: 210px;
+        font-size: 12px;
+    }
+
+    .haunted-path {
+        width: 300px;
+    }
+
+    .dead-tree {
+        height: 230px;
+    }
+
+    .branch {
+        width: 100px;
+    }
+
+}
